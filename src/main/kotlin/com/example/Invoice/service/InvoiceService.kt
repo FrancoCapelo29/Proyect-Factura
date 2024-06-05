@@ -1,7 +1,9 @@
 package com.example.Invoice.service
 
 import com.example.Invoice.entity.Invoice
+import com.example.Invoice.entity.InvoiceView
 import com.example.Invoice.repository.InvoiceRepository
+import com.example.Invoice.repository.InvoiceViewRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -13,12 +15,19 @@ class InvoiceService {
     @Autowired
     lateinit var invoiceRepository: InvoiceRepository
 
+    @Autowired
+    lateinit var invoiceViewRepository: InvoiceViewRepository
+
     fun getTotal (value:Double): List<Invoice>{
         return invoiceRepository.findTotal(value)
     }
 
     fun list ():List<Invoice>{
         return invoiceRepository.findAll()
+    }
+
+    fun listView ():List<InvoiceView>{
+        return invoiceViewRepository.findAll()
     }
 
     fun save(invoice: Invoice): Invoice{

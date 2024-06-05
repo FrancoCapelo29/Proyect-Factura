@@ -1,6 +1,7 @@
 package com.example.Invoice.controller
 
 import com.example.Invoice.entity.Invoice
+import com.example.Invoice.entity.InvoiceView
 import com.example.Invoice.service.InvoiceService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -29,6 +30,11 @@ class InvoiceController {
     @GetMapping
     fun list(): List<Invoice> {
         return invoiceService.list()
+    }
+
+    @GetMapping("/whit-client")
+    fun listView ():List<InvoiceView>{
+        return invoiceService.listView()
     }
 
     @PostMapping
