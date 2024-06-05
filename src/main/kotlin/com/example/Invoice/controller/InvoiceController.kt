@@ -16,10 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/invoice")   //endpoint
+@RequestMapping("/invoices")   //endpoint
 class InvoiceController {
     @Autowired
     lateinit var invoiceService: InvoiceService
+
+    @GetMapping("/{value}/get-total")
+    fun getTotal (@PathVariable value:Double):List<Invoice>{
+        return invoiceService.getTotal(value)
+    }
 
     @GetMapping
     fun list(): List<Invoice> {

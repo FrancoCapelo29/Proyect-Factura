@@ -24,6 +24,7 @@ class Invoice{
     var total: Double? = null
 
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     var client: Client? = null

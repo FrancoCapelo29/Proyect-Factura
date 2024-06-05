@@ -13,6 +13,10 @@ class InvoiceService {
     @Autowired
     lateinit var invoiceRepository: InvoiceRepository
 
+    fun getTotal (value:Double): List<Invoice>{
+        return invoiceRepository.findTotal(value)
+    }
+
     fun list ():List<Invoice>{
         return invoiceRepository.findAll()
     }
